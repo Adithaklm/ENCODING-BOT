@@ -1,5 +1,4 @@
 <div align="center">
-  <img src="https://prod.assets.earlygamecdn.com/images/Chisa.jpg?transform=Banner+Webp" alt="VideoEncoder Bot" width="100%">
 
   # 🎬 VideoEncoder Bot
 
