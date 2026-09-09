@@ -19,6 +19,7 @@ psutil
 js2py
 cloudscraper
 lk21
+setuptools
 lxml
 httpx
 speedtest-cli
