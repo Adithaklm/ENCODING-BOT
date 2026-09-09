@@ -6,18 +6,25 @@ if not hasattr(re, "sre_parse"):
     import re._parser
     re.sre_parse = re._parser
 
+
+# Save the REAL original urlparse before patching
+_original_urlparse = urllib.parse.urlparse
+
+
 def safe_urlparse(url):
     try:
-        return urllib.parse._urlparse(url)
+        return _original_urlparse(url)
     except Exception:
-        return urllib.parse._urlparse("http://invalid")
+        return _original_urlparse("http://invalid")
 
-# Save original function
-urllib.parse._urlparse = urllib.parse.urlparse
+
+# Patch urlparse safely
 urllib.parse.urlparse = safe_urlparse
+
 
 # Now import lk21 AFTER monkey patch
 import lk21
+
 
 # Apply pyrogram save_file patch
 from . import pyrogram_patch
